@@ -13,7 +13,7 @@ if os.path.isdir('COVID-19-master'): rmtree('COVID-19-master')
 print("Starting Brazil data")
 import requests, zipfile, io
 
-csse_path = "https://github.com/peixebabel/COVID-19/archive/master.zip"
+csse_path = "https://github.com/joaotite/COVID-19/archive/master.zip"
 
 r = requests.get(csse_path, stream=True)
 z = zipfile.ZipFile(io.BytesIO(r.content))
