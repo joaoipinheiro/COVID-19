@@ -1,0 +1,38 @@
+---
+---
+
+@import 'jekyll-theme-cayman';
+
+.page-header{
+  background-color: #a93226;
+  background-image: url("https://www.caxambu.mg.gov.br/v2/wp-content/uploads/2020/05/WhatsApp-Image-2020-05-15-at-10.16.43.jpeg");
+  background-repeat: no-repeat;
+  background-position: center center;
+  height: 300px;
+
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.btn{
+  position: absolute;
+  margin-bottom: 1rem;
+  bottom: 0;
+}
+
+.main-content {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6{
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    font-weight: normal;
+    color: #a93226;
+  }
+}

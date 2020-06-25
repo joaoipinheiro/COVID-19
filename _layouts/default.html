@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: "en-US" }}">
+  <head>
+
+    {% if site.google_analytics %}
+      <script async src="https://www.googletagmanager.com/gtag/js?id={{ site.google_analytics }}"></script>
+      <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', '{{ site.google_analytics }}');
+      </script>
+    {% endif %}
+    <meta charset="UTF-8">
+
+{% seo %}
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#157878">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
+  </head>
+  <body>
+
+    <header class="page-header" role="banner">
+      {% if site.github.is_project_page %}
+        <a href="{{ site.github.repository_url }}" class="btn">Ver no GitHub</a>
+      {% endif %}
+    </header>
+
+    <main id="content" class="main-content" role="main">
+      <h1> COVID-19 </h1>
+      <p> Dados e informações do Covid-19 pelo <a href="https://www.instagram.com/joaotite/">João Tite</a>. </p>
+      
+      <h2>Dados referentes a {{ site.dataref }}.</h2>
+      
+      <h4> De acordo com as Secretarias de Saúde</h4>
+      <table style="width:60%">
+        <tr>
+          <th>Casos Acumulados</th>
+          <th>Casos Novos</th> 
+        </tr>
+        <tr>
+          <td>{{ site.total }}</td>
+          <td>{{ site.diario }}</td>
+        </tr>
+      </table>
+      <table style="width:60%">
+        <tr>
+          <th>Óbitos Acumulados</th>
+          <th>Óbitos Novos</th> 
+        </tr>
+        <tr>
+          <td>{{ site.obitos }}</td>
+          <td>{{ site.obitosdiario }}</td>
+        </tr>
+      </table>
+      
+      <h4> De acordo com o Ministério da Saúde</h4>
+      <table style="width:60%">
+        <tr>
+          <th>Casos Acumulados</th>
+          <th>Casos Novos</th> 
+        </tr>
+        <tr>
+          <td>{{ site.totalms }}</td>
+          <td>{{ site.diarioms }}</td>
+        </tr>
+      </table>
+      <table style="width:60%">
+        <tr>
+          <th>Óbitos Acumulados</th>
+          <th>Óbitos Novos</th> 
+        </tr>
+        <tr>
+          <td>{{ site.obitosms }}</td>
+          <td>{{ site.obitosdiarioms }}</td>
+        </tr>
+      </table>
+      
+      
+      <h2> Número de casos e óbitos acumulados </h2>
+      Dados do Ministério da Saúde. <a href="https://raw.githubusercontent.com/peixebabel/COVID-19/master/data/casos-br-total.csv">Baixe aqui a tabela csv</a>.
+      {% include casos.html %}
+      
+      {% include obitos.html %}
+      
+      <h2> Número de casos e óbitos por dia </h2>
+      
+      {% include casos-por-dia.html %}
+      
+      {% include obitos-por-dia.html %}
+      
+      <h2>Informações por estado </h2>
+      
+      <h3> Casos e Óbitos Totais e Por Dia </h3>
+      Informações de casos e óbitos acumulados e por dia. Utilize o menu acima dos gráficos para selecionar o estado do Brasil que deseja verificar.
+      
+      Dados do Ministério da Saúde. <a href="https://raw.githubusercontent.com/peixebabel/COVID-19/master/data/casos-br-total.csv">Baixe aqui a tabela csv</a>.
+      <strong>Substituimos os dados dos dias 05/06 a 08/06 por reportes das Secretarias dado o súbito desaparecimento do portal covid do Ministério.</strong> 
+      
+      {% include resumo-por-estado.html %}
+      
+      <h3> Casos e Óbitos Totais e Por Milhão </h3>
+      Dados das Secretarias da Saúde. <a href="https://github.com/peixebabel/COVID-19/tree/master/data">Aqui estão as tabelas por data</a>.
+      
+      {% include casos-por-estado.html %}
+      
+      {% include obitos-por-estado.html %}
+      
+      <h2> Brasil em relação ao Mundo </h2>
+      Dados mundiais fornecidos pelo <i>Center for Systems Science and Engineering (CSSE) at Johns Hopkins University</i>. <a href="https://github.com/CSSEGISandData/COVID-19/tree/master/csse_covid_19_data/csse_covid_19_daily_reports">Aqui estão as tabelas por data</a>.
+      
+      <h3> Casos e Óbitos acumulados </h3>
+      
+      {% include casos-mundo.html %}
+      
+      {% include obitos-mundo.html %}
+      
+      <h3> Casos e Óbitos acumulados </h3>
+      
+      {% include casos-mundo-por-dia.html %}
+      
+      {% include obitos-mundo-por-dia.html %}
+      
+      <h3> Referências </h3>
+      
+      <ul>
+        <li> <a href="http://covid.saude.gov.br">Ministério da Saúde do Brasil</a> --Dados completos indisponíveis desde 05/06/2020-- </li>
+        <li> <a href="https://covid19br.github.io/">Observatório Covid</a> </li>
+        <li> <a href="https://brasil.io/covid19/">Brasil.io</a> </li>
+        <li> <a href="https://covid19br.wcota.me/">Wesley Cota</a> </li>
+        <li> <a href="https://www.lagomdata.com.br/coronavirus">Lagom Data</a> </li>
+        <li> <a href="https://www.worldometers.info/coronavirus/">Worldometer</a> </li>
+        <li> <a href="https://coronavirusbra1.github.io/">Coronavirusbra1</a> </li>
+      </ul>
+      
+      <footer class="site-footer">
+        {% if site.github.is_project_page %}
+          <span class="site-footer-owner"><a href="{{ site.github.repository_url }}">{{ site.github.repository_name }}</a> is maintained by <a href="{{ site.github.owner_url }}">{{ site.github.owner_name }}</a>.</span>
+        {% endif %}
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a>.</span>
+      </footer>
+    </main>
+  </body>
+</html>
