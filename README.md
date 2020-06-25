@@ -1,6 +1,7 @@
 # COVID-19
 Dados e Informações sobre o avanço do COVID-19
-Gráficos interativos disponíveis em:
+
+## Gráficos interativos disponíveis em:
 https://joaotite.github.io/COVID-19/
 
 #### Referências: 
