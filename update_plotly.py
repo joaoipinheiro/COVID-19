@@ -43,7 +43,7 @@ df.tail()
 
 def plot_acumulado(column, filename, title, color, dias_projecao):
 
-  ## Predict next seven days ##
+  ## Prever os próximos sete dias ##
   conf7 = list(df[column].to_numpy()[-7:])
   tc = [conf7[i+1]/conf7[i] for i in range(len(conf7)-1)]
   tc = np.array(tc).mean()
